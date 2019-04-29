@@ -1,18 +1,10 @@
+# -*- coding: utf-8 -*-
 import requests
 from pprint import pprint
+from mediawiki import MediaWiki
+from app.parser import QuestionParser
+
 
 class WikiM:
-    url = "https://fr.wikipedia.org/w/api.php"
-
-    params = {
-        "action": "query",
-        "prop": "info|extracts",
-        "inprop": "url",
-        "explaintext": "",
-        "exchars": 1200,
-        "titles": "Eiffel",
-        "format": "json",
-    }
-
-    response = requests.get(url, params=params)
-    pprint(response.json())
+    def __init__(self):
+        self.wikipedia = MediaWiki(lang="fr")

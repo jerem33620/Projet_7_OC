@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from app.parser import QuestionParser
+import re
 from app.googlemaps import GMaps
 from app.wikimedia import WikiM
-import re
 
 
 class GrandPyBot():

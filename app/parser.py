@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 
 # -tc- Prochaine étape: utiliser la méthode clean() pour nettoyer des questions
@@ -16,7 +17,8 @@ class QuestionParser:
         # -tc- que l'exécution soit effective.
         self.remove_special()
         self.remove_accents()
-        self.delete_spaces(self)
+        self.delete_spaces()
+        return self.sentence
 
     def transform_to_lowercase(self):
         self.sentence = self.sentence.lower()
@@ -38,8 +40,8 @@ class QuestionParser:
         self.sentence = self.sentence.translate(delete)
         return self.sentence
 
-    def delete_spaces(self, sentence):
-        remove_spaces = sentence.strip().replace("  ", " ").replace("'", " ")
+    def delete_spaces(self):
+        remove_spaces = self.sentence.strip().replace("  ", " ").replace("'", " ")
         return remove_spaces
 
     def remove_stop_words(self):

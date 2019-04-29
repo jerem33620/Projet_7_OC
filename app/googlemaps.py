@@ -1,18 +1,33 @@
+# -*- coding: utf-8 -*-
+import os
 import googlemaps
 from datetime import datetime
+from app.parser import QuestionParser
+
 class GMaps:
     
-    gmaps = googlemaps.Client(key='AIzaSyCxfjCH-lW7bpTOFb857wKZKGJyRwRe7-U')
+    def __init__(self):
+        
+        self.gmaps = googlemaps.Client(key=os.getenv("GOOGLEMAPS_API_KEY"))
 
-# Géocodage d'une adresse
-    geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
+    def search(self,sentence):
+        results = self.gmaps.geocode(sentence)
+        if results: 
+            result = results[0]
+            final_result = {
+                "address": result["formatted_address"],
+                "latitude": result["geometry"]["location"]["lat"],
+                "longitude": result["geometry"]["location"]["lng"]
+            }
+            return final_result
+        return {"address":None, "latitude":None, "longitude":None}
 
-# Recherchez une adresse avec géocodage inverse
-    reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+def main():
+    sentence = "Tour Eiffel?"
+    parser = QuestionParser(sentence)
+    gmaps = GMaps()
+    print(gmaps.search(parser.clean()))
+    
 
-# Demander des directions via le transport en commun 
-    now = datetime.now()
-    directions_result = gmaps.directions("Sydney Town Hall",
-                                     "Parramatta, NSW",
-                                     mode="transit",
-                                     departure_time=now)
+if __name__ == "__main__":
+    main()
