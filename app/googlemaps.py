@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import os
 import googlemaps
-from datetime import datetime
-from app.parser import QuestionParser
+
 
 class GMaps:
     
     def __init__(self):
-        
+        """Permet de générer la clé de l'API de googlemaps"""
         self.gmaps = googlemaps.Client(key=os.getenv("GOOGLEMAPS_API_KEY"))
 
-    def search(self,sentence):
+    def search(self, sentence):
+        """Permet d'obtenir l'adress voulut grâce à la latitude et la longitude"""
         results = self.gmaps.geocode(sentence)
         if results: 
             result = results[0]
@@ -21,13 +21,3 @@ class GMaps:
             }
             return final_result
         return {"address":None, "latitude":None, "longitude":None}
-
-def main():
-    sentence = "Tour Eiffel?"
-    parser = QuestionParser(sentence)
-    gmaps = GMaps()
-    print(gmaps.search(parser.clean()))
-    
-
-if __name__ == "__main__":
-    main()
