@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from app.parser import QuestionParser
-from app.googlemaps import GMaps
-from app.wikipedia import WikiP
+from .parserquestion import QuestionParser
+from .googlemaps import GMaps
+from .wikipedia import WikiP
 
 
 def question_for_app_grandpy(question):

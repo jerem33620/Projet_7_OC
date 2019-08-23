@@ -1,13 +1,14 @@
 # -*- coding: Utf-8 -*
+import os
 
 from flask import Flask, render_template, request, jsonify
-from app.grandpy import question_for_app_grandpy
+from .grandpy import question_for_app_grandpy
 
 app = Flask(__name__)
 
 @app.route('/')
 def grandpy_question():
-    return render_template('base.html')
+    return render_template('base.html', api_key=os.environ.get("GOOGLE_API_KEY_2"))
 
 @app.route('/question')
 def question():

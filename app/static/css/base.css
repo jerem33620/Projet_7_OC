@@ -1,26 +1,57 @@
-header
-{
-    text-align: center;
-    color: white;
-    background-color: black;
-    opacity: 0.6;
-    width: 60%;
-}
-body
-{
+body {
     background: url("../pictures/fond.png") scroll no-repeat top;
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    justify-content: space-between;
 }
-footer
-{
-    text-align: left;
-    color: black;
-    width: 50%;
-    font-size: 90%;
-    background-color: whyte;
+
+header {
+    text-align: center;
+    color: white;
+    background-color: black;
     opacity: 0.6;
-    height: 70px;
-    margin: auto;
+    width: 100%;
+    flex-grow: 0;
+}
+
+#map {
+    height: 200px;
+    width: 40%;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+main legend {
+    color: red;
+    font-weight: bold;
+}
+
+main p {
+    color: red;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    width: 100%;
+    flex-grow: 0;
+    align-self: stretch;
+    margin: 0;
+}
+
+footer h4 a:hover {
+    font-weight: bold;
+    color: red;
 }

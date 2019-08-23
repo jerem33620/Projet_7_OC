@@ -2,29 +2,42 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Bienvenue sur mon site GrandPy Bot</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+        <title>GrandPy Bot</title>
     </head>
 
     <body>
 		<header>
-  			header
+			<img src="../static/pictures/icone.png" alt="Logo de grand-père" />
 			<br>
         	<h1>Besoin d'une adresse ? GrandPy Bot est là pour vous !</h1>
-        	<br>
         	<hr/>
 			<h3>On dit même qu'il a toujours une petite histoire à raconter ...</h3>
-			<img src="../static/pictures/fond.png" alt="Photo de deux grand-père" />
 		</header>
 
 		<main>
-  			main
+			<form method="POST" action="">
+
+				<div class="chatBox">
+					<div class="chatDiscussion">
+						<div class="chatRobot">
+							<p>Bonjour et bienvenue! Quelle endroit recherches-tu?</p>
+						</div>
+					</div>
+				</div>
+			</form>
 		</main>
 
 		<footer>
-			<h4>Jérémy Guyot</h4>
-			<a href="https://github.com/jerem33620/Projet_7_OC.git">Voir le projet sur GitHub</a><br><br>
-			<a href="https://www.linkedin.com/in/jeremy-guyot-366123151/">Voir le profil sur Linkedin</a><br><br>
+			<h5>Jérémy Guyot</h5>
+			<h4><a href="https://github.com/jerem33620/Projet_7_OC.git">Voir le projet sur GitHub</a> |
+			<a href="https://www.linkedin.com/in/jeremy-guyot-366123151/">Voir le profil sur Linkedin</a></h4>
 		</footer>
+
+		<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API_KEY_1 }}&callback=initMap">
+		</script>
     </body>
 </html>

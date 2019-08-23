@@ -7,7 +7,7 @@ class GMaps:
     
     def __init__(self):
         """Permet de générer la clé de l'API de googlemaps"""
-        self.gmaps = googlemaps.Client(key=os.getenv("GOOGLEMAPS_API_KEY"))
+        self.gmaps = googlemaps.Client(key=os.getenv("GOOGLE_API_KEY_1"))
 
     def search(self, sentence):
         """Permet d'obtenir l'adress voulut grâce à la latitude et la longitude"""
