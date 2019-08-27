@@ -23,23 +23,21 @@ function createChatRobot(content, number){
     scrollBottom();
 }
 
+let addFriend = 0;
 let form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     let question = {
-        question:
+        question: "Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?"
     };
-
-    // Permet d'envoyer l'objet au serveur
-    ajaxPost(window.location.href+"/question", question,
-        function (reponse) {
-
-        });
+    let data = new FormData(form);
+    let content = document.getElementById('data');
+    createChatFriend(content.value, addFriend);
+    addFriend++;
 });
-
 function initMap(latitude, longitude) {
     let myLatLng = {lat: latitude, lng: longitude};
-  
+
     let map = new google.maps.Map(document.getElementsByClassName('map').pop(), {
         zoom: 12,
         center: myLatLng
@@ -50,4 +48,12 @@ function initMap(latitude, longitude) {
         map: map,
         title: 'ici!'
     });
-}
+    // Permet d'envoyer l'objet au serveur
+    ajaxPost(window.location.href + "/question", question,
+        function (reponse) {
+        console.log("Je connais bien l'adresse que tu me demandes: " + 
+        JSON.parse(question) + " Vois-ci son emplacement!");
+        initMap(latitude, longitude);
+
+    });
+};
