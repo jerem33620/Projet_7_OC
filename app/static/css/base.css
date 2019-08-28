@@ -30,16 +30,6 @@ main {
     flex-grow: 1;
 }
 
-main legend {
-    color: red;
-    font-weight: bold;
-}
-
-main p {
-    color: red;
-    font-weight: bold;
-}
-
 .chatBox {
     float: right;
     position: relative;
@@ -70,6 +60,7 @@ main p {
 }
   
 .chatFriend {
+    color: gold;
     float: right;
     max-width: 300px;
     text-align: right;
