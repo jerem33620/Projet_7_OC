@@ -54,6 +54,5 @@ function initMap(latitude, longitude) {
         console.log("Je connais bien l'adresse que tu me demandes: " + 
         JSON.parse(question) + " Vois-ci son emplacement!");
         initMap(latitude, longitude);
-
     });
 };

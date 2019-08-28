@@ -19,7 +19,7 @@ header {
     flex-grow: 0;
 }
 
-#map {
+map {
     height: 200px;
     width: 40%;
 }
@@ -38,6 +38,42 @@ main legend {
 main p {
     color: red;
     font-weight: bold;
+}
+
+.chatBox {
+    float: right;
+    position: relative;
+    width: 40%;
+    height: 225px;
+    margin: 5px;
+    opacity: 0.6;
+    background-color: black;
+    border: solid 1px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+  
+.chatDiscussion {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+}
+  
+.chatRobot {
+    color: red;
+    float: left;
+    max-width: 300px;
+    text-align: left;
+    margin-left: 0px;
+}
+  
+.chatFriend {
+    float: right;
+    max-width: 300px;
+    text-align: right;
+    margin-right: 5px;
 }
 
 footer {
