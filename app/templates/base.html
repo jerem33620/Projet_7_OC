@@ -21,11 +21,8 @@
 					<div class="chatRobot">
 						<p>Bonjour et bienvenue! Quelle endroit recherches-tu?</p>
 					</div>
-				</div>
-				<div class="map">
-				</div>
-				<form method="POST" action="">
-					<input id="data" type="text" name="questionText" autofocus
+				<form id="main-form" method="POST" action="">
+					<input type="text" id="question" name="question" autofocus style="width: 85%"
 					placeholder="Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?" />
 					<input type="submit" value="Envoyer" /> 
 				</form>
@@ -33,7 +30,7 @@
 		</main>
 
 		<footer>
-			<h5>Jérémy Guyot</h5>
+			<h5>&copy; Jérémy Guyot, 2019</h5>
 			<h4><a href="https://github.com/jerem33620/Projet_7_OC.git">Voir le projet sur GitHub</a> |
 			<a href="https://www.linkedin.com/in/jeremy-guyot-366123151/">Voir le profil sur Linkedin</a></h4>
 		</footer>
@@ -41,7 +38,7 @@
 		<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
 		<script src="{{ url_for('static', filename='js/base.js') }}"></script>
 		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API_KEY_1 }}&callback=initMap">
+			src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}">
 		</script>
     </body>
 </html>

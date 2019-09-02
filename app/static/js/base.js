@@ -23,22 +23,12 @@ function createChatRobot(content, number){
     scrollBottom();
 }
 
-let addFriend = 0;
-let form = document.querySelector("form");
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    let question = {
-        question: "Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?"
-    };
-    let data = new FormData(form);
-    let content = document.getElementById('data');
-    createChatFriend(content.value, addFriend);
-    addFriend++;
-});
 function initMap(latitude, longitude) {
     let myLatLng = {lat: latitude, lng: longitude};
 
-    let map = new google.maps.Map(document.getElementsByClassName('map').pop(), {
+    let maps = document.querySelectorAll('.map')
+    let lastmap = maps[maps.length - 1];
+    let map = new google.maps.Map(lastmap, {
         zoom: 12,
         center: myLatLng
     });
@@ -46,13 +36,26 @@ function initMap(latitude, longitude) {
     let marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'ici!'
+        title: 'trouvé par grandpy'
     });
+}
+
+let form = document.querySelector("#main-form");
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let question = {
+        question: "Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?"
+    };
+    let data = new FormData(form);
+
     // Permet d'envoyer l'objet au serveur
-    ajaxPost(window.location.href + "/question", question,
+    ajaxPost(window.location.href + "/question", question, data,
         function (reponse) {
-        console.log("Je connais bien l'adresse que tu me demandes: " + 
-        JSON.parse(question) + " Vois-ci son emplacement!");
-        initMap(latitude, longitude);
+            response = JSON.parse(response);
+            
+            createChatFriend(response.content, response.number);
+            createChatRobot(response.content, response.number);
+            initMap(response.latitude, response.longitude);
+
     });
-};
+})
