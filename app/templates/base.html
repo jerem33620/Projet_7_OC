@@ -16,16 +16,21 @@
 		</header>
 
 		<main>
-			<div class="chatBox">
-				<div class="chatDiscussion">
-					<div class="chatRobot">
-						<p>Bonjour et bienvenue! Quelle endroit recherches-tu?</p>
-					</div>
-				<form id="main-form" method="POST" action="">
-					<input type="text" id="question" name="question" autofocus style="width: 85%"
-					placeholder="Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?" />
-					<input type="submit" value="Envoyer" /> 
-				</form>
+			<div class="chatRow">
+				<div class="chatBox">
+				  	<div class="chatDiscussion">
+						<div class="chatRobot">
+					  		<p>Bonjour et bienvenue! Quelle endroit recherches-tu?</p>
+						</div>
+				  	</div>
+		  
+				  	<div class="inputBox">
+						<form id="main-form" method="POST">
+					  		<input id="data" type="text" name="submitText" placeholder="Salut GrandPy! Connais-tu l'adresse de la Tour Eiffel?">
+							<button class="myButton" type="submit">Envoyer</button>
+						</form>
+				  	</div>
+				</div>
 			</div>
 		</main>
 

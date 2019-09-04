@@ -1,5 +1,5 @@
 import json
-from app import googlemaps
+from app import gomaps
 
 
 def test_search_for_latitude_longitude(monkeypatch):
@@ -21,7 +21,7 @@ def test_search_for_latitude_longitude(monkeypatch):
             return results
 
     monkeypatch.setattr("googlemaps.Client", MockClient)
-    gmaps = googlemaps.GMaps()
+    gmaps = gomaps.GMaps()
     results = gmaps.search("Salut")
 
     assert results["address"] == address

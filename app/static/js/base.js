@@ -40,22 +40,25 @@ function initMap(latitude, longitude) {
     });
 }
 
+let addFriend = 0;
 let form = document.querySelector("#main-form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     let question = {
-        question: "Salut GrandPy! Est-ce que tu connais l'adresse du musée du louvre à paris ?"
+        question: "Salut, où se trouve la tour eiffel?"
     };
     let data = new FormData(form);
+    let content = document.getElementById('data');
+    createChatFriend(content.value, addFriend);
+    addFriend++;
 
     // Permet d'envoyer l'objet au serveur
-    ajaxPost(window.location.href + "/question", question, data,
+    ajaxPost(window.location.href + "question", data,
         function (reponse) {
             response = JSON.parse(response);
             
             createChatFriend(response.content, response.number);
             createChatRobot(response.content, response.number);
             initMap(response.latitude, response.longitude);
-
     });
 })

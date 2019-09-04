@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from .parserquestion import QuestionParser
-from .googlemaps import GMaps
+from .gomaps import GMaps
 from .wikipedia import WikiP
 
 
@@ -16,5 +16,5 @@ def question_for_app_grandpy(question):
     return {
         "parser": question,
         "gmaps": result_address,
-        "wikimedia": result_wiki
+        "wikip": result_wiki
     }
