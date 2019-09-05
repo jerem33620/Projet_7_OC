@@ -1,18 +1,8 @@
 function scrollBottom(){
-    let chatBox = document.getElementsByClassName("chatDiscussion")[0];
+    let chatBox = document.getElementsByClassName('chatDiscussion')[0];
     chatBox.scrollTop = chatBox.scrollHeight;
 }
-  
-function createChatFriend(content, number){
-    let addToChatBox = document.createElement('div');
-    let addText = document.createElement('p');
-    addToChatBox.setAttribute('class', 'chatFriend');
-    document.getElementsByClassName('chatDiscussion')[0].appendChild(addToChatBox);
-    addText.textContent = content;
-    document.getElementsByClassName('chatFriend')[number].appendChild(addText);
-    scrollBottom();
-}
-  
+
 function createChatRobot(content, number){
     let addToChatBox = document.createElement('div');
     let addText = document.createElement('p');
@@ -23,10 +13,20 @@ function createChatRobot(content, number){
     scrollBottom();
 }
 
+function createChatFriend(content, number){
+    let addToChatBox = document.createElement('div');
+    let addText = document.createElement('p');
+    addToChatBox.setAttribute('class', 'chatFriend');
+    document.getElementsByClassName('chatDiscussion')[0].appendChild(addToChatBox);
+    addText.textContent = content;
+    document.getElementsByClassName('chatFriend')[number].appendChild(addText);
+    scrollBottom();
+}
+
 function initMap(latitude, longitude) {
     let myLatLng = {lat: latitude, lng: longitude};
 
-    let maps = document.querySelectorAll('.map')
+    let maps = document.getElementsByClassName('.map')
     let lastmap = maps[maps.length - 1];
     let map = new google.maps.Map(lastmap, {
         zoom: 12,
@@ -41,9 +41,10 @@ function initMap(latitude, longitude) {
 }
 
 let addFriend = 0;
+let addRobot = 1;
 let form = document.querySelector("#main-form");
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
     let question = {
         question: "Salut, où se trouve la tour eiffel?"
     };
@@ -51,14 +52,15 @@ form.addEventListener("submit", function (event) {
     let content = document.getElementById('data');
     createChatFriend(content.value, addFriend);
     addFriend++;
-
-    // Permet d'envoyer l'objet au serveur
-    ajaxPost(window.location.href + "question", data,
-        function (reponse) {
-            response = JSON.parse(response);
-            
-            createChatFriend(response.content, response.number);
-            createChatRobot(response.content, response.number);
-            initMap(response.latitude, response.longitude);
+    ajaxPost(window.location.href + "question", data, function (reponse) {
+        let localisation = JSON.parse(reponse);
+        console.log(localisation);
+        let returnAdress = "Bien sur jeune scarabé, la voici: " + localisation[1]
+        let bonus = "Je t'avais proposé un bonus.. " + localisation[2]
+        createChatRobot(returnAdress, addRobot);
+        addRobot++;
+        createChatRobot(bonus, addRobot);
+        addRobot++;
+        initMap(response.latitude, response.longitude)
     });
 })

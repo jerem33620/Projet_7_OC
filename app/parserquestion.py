@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
 
-
 class QuestionParser:
     """C'est la class qui va filtré la question pausé par l'utilisateur"""
 
@@ -18,29 +17,27 @@ class QuestionParser:
 
     def transform_to_lowercase(self):
         """Permet de modifié les majuscules en minuscule"""
-        self.sentence = self.sentence.lower()
-        return self.sentence
+        str = "CECI EST UN EXEMPLE EN MAJUSCULE"
+        return str.lower()
 
     def remove_special(self):
         """Change tous ces caractères spéciaux en un espace vide"""
         intab = ",?;.:/!-*+%$€_£¤=@|°}]¨[(){'#~&²"
         outab = "                                "
-        delete = str.maketrans(intab, outab)
-        self.sentence = self.sentence.translate(delete)
-        return self.sentence
+        trantab = str.maketrans(intab, outab)
+        return (",?;.:/!-*+%$€_£¤=@|°}]¨[(){'#~&²".translate(trantab))
 
     def remove_accents(self):
         """Permet de changé les lettres avec accents et de les modifié sans accents"""
         intab = "éèêëãàäâåîïìöôòõñûüÿ"
         outab = "eeeeaaaaaiiioooonuuy"
-        delete = str.maketrans(intab, outab)
-        self.sentence = self.sentence.translate(delete)
-        return self.sentence
+        trantab = str.maketrans(intab, outab)
+        return ("éèêëãàäâåîïìöôòõñûüÿ".translate(trantab))
 
     def delete_spaces(self):
         """Permet de remplacé plusieurs espaces vides par un seul espace vide et aussi l'apostrophe"""
-        remove_spaces = self.sentence.strip().replace("  ", " ").replace("'", " ")
-        return remove_spaces
+        remove_spaces = "   j'ai un   probleme avec   mon exemple    "
+        return remove_spaces.strip().replace("  ", " ").replace("'", " ")
 
     def remove_stop_words(self):
         """

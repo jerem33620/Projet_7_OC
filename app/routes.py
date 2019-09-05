@@ -10,10 +10,11 @@ app = Flask(__name__)
 def grandpy_question():
     return render_template('base.html', api_key=os.environ.get('GOOGLE_API_KEY_2'))
 
-@app.route('/question', methods=['POST'])
+@app.route('/question', methods = ['POST'])
 def question():
-    user_question = request.args.get('question', '')
-    return jsonify(question_for_app_grandpy(user_question))
+    if request.method == 'POST':
+        question = request.form
+        return jsonify(question_for_app_grandpy(question))
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
