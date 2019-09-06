@@ -56,11 +56,8 @@ form.addEventListener("submit", function (e) {
         let localisation = JSON.parse(reponse);
         console.log(localisation);
         let returnAdress = "Bien sur jeune scarabé, la voici: " + localisation[1]
-        let bonus = "Je t'avais proposé un bonus.. " + localisation[2]
         createChatRobot(returnAdress, addRobot);
         addRobot++;
-        createChatRobot(bonus, addRobot);
-        addRobot++;
-        initMap(response.latitude, response.longitude)
+        initMap(latitude, longitude)
     });
 })
