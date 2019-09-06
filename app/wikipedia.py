@@ -32,14 +32,17 @@ class WikiP:
             "pageids": id,
             "inprop": "url",
             "format": "json",
-            "exchars": 1000
+            "exchars": 300,
         }
 
         url = "https://fr.wikipedia.org/w/api.php"
 
-        r = requests.get(url, params=params)
-
-        if r.status_code == 200:
+        try:
+            r = requests.get(url, params=params)
             data = r.json()
-            return data
-        return []
+            url_page = data['query']['pages'][str(id)]['fullurl']
+            intro = data['query']['pages'][str(id)]['extract']
+            return intro, url_page
+
+        except KeyError:
+            print("Informations non trouvées")

@@ -3,32 +3,37 @@ function scrollBottom(){
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-function createChatRobot(content, number){
+function createChatRobot(content){
     let addToChatBox = document.createElement('div');
     let addText = document.createElement('p');
     addToChatBox.setAttribute('class', 'chatRobot');
-    document.getElementsByClassName('chatDiscussion')[0].appendChild(addToChatBox);
+    document.querySelector('.chatDiscussion').appendChild(addToChatBox);
     addText.textContent = content;
-    document.getElementsByClassName('chatRobot')[number].appendChild(addText);
+    addToChatBox.appendChild(addText);
     scrollBottom();
 }
 
-function createChatFriend(content, number){
+function createChatFriend(content, wikipedia){
     let addToChatBox = document.createElement('div');
     let addText = document.createElement('p');
+    let map = document.createElement('div');
+    let wikipediaElt = document.createElement('p');
+    wikipediaElt.textContent = wikipedia;
+    map.classList.add('map');
     addToChatBox.setAttribute('class', 'chatFriend');
-    document.getElementsByClassName('chatDiscussion')[0].appendChild(addToChatBox);
+    document.querySelector('.chatDiscussion').appendChild(addToChatBox);
     addText.textContent = content;
-    document.getElementsByClassName('chatFriend')[number].appendChild(addText);
+    addToChatBox.appendChild(addText);
+    addToChatBox.appendChild(map);
+    addToChatBox.appendChild(wikipediaElt);
     scrollBottom();
 }
 
 function initMap(latitude, longitude) {
     let myLatLng = {lat: latitude, lng: longitude};
 
-    let maps = document.getElementsByClassName('.map')
-    let lastmap = maps[maps.length - 1];
-    let map = new google.maps.Map(lastmap, {
+    let maps = document.querySelectorAll('.map');
+    let map = new google.maps.Map (maps[maps.length - 1], {
         zoom: 12,
         center: myLatLng
     });
@@ -46,18 +51,17 @@ let form = document.querySelector("#main-form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     let question = {
-        question: "Salut, où se trouve la tour eiffel?"
+        question: "Où se trouve Paris?"
     };
     let data = new FormData(form);
     let content = document.getElementById('data');
-    createChatFriend(content.value, addFriend);
-    addFriend++;
     ajaxPost(window.location.href + "question", data, function (reponse) {
         let rechercheLocal = JSON.parse(reponse);
         console.log(rechercheLocal);
-        let returnAdress = "Bien sur jeune scarabé, la voici: " + rechercheLocal[1]
+        let returnAdress = rechercheLocal.grandpy + rechercheLocal.gmaps.address
+        createChatFriend(content.value, rechercheLocal.wikip);
         createChatRobot(returnAdress, addRobot);
         addRobot++;
-        initMap(rechercheLocal.latitude, rechercheLocal.longitude)
+        initMap(rechercheLocal.gmaps.latitude, rechercheLocal.gmaps.longitude)
     });
 })

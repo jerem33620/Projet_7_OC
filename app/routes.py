@@ -13,8 +13,10 @@ def grandpy_question():
 @app.route('/question', methods = ['POST'])
 def question():
     if request.method == 'POST':
-        question = request.form
-        return jsonify(question_for_app_grandpy(question))
+        question = request.form['submitText']
+        answer = question_for_app_grandpy(question)
+        print(answer)
+        return jsonify(answer)
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
