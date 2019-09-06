@@ -53,11 +53,11 @@ form.addEventListener("submit", function (e) {
     createChatFriend(content.value, addFriend);
     addFriend++;
     ajaxPost(window.location.href + "question", data, function (reponse) {
-        let localisation = JSON.parse(reponse);
-        console.log(localisation);
-        let returnAdress = "Bien sur jeune scarabé, la voici: " + localisation[1]
+        let rechercheLocal = JSON.parse(reponse);
+        console.log(rechercheLocal);
+        let returnAdress = "Bien sur jeune scarabé, la voici: " + rechercheLocal[1]
         createChatRobot(returnAdress, addRobot);
         addRobot++;
-        initMap(latitude, longitude)
+        initMap(rechercheLocal.latitude, rechercheLocal.longitude)
     });
 })
