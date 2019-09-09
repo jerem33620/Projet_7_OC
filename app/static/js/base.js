@@ -18,6 +18,7 @@ function createChatFriend(content, wikipedia){
     let addText = document.createElement('p');
     let map = document.createElement('div');
     let wikipediaElt = document.createElement('p');
+    let wikipediaUrl = document.createElement('a');
     wikipediaElt.textContent = wikipedia;
     map.classList.add('map');
     addToChatBox.setAttribute('class', 'chatFriend');
@@ -25,7 +26,7 @@ function createChatFriend(content, wikipedia){
     addText.textContent = content;
     addToChatBox.appendChild(addText);
     addToChatBox.appendChild(map);
-    addToChatBox.appendChild(wikipediaElt);
+    addToChatBox.appendChild(wikipediaElt).appendChild(wikipediaUrl);
     scrollBottom();
 }
 
@@ -59,7 +60,7 @@ form.addEventListener("submit", function (e) {
         let rechercheLocal = JSON.parse(reponse);
         console.log(rechercheLocal);
         let returnAdress = rechercheLocal.grandpy + rechercheLocal.gmaps.address
-        createChatFriend(content.value, rechercheLocal.wikip);
+        createChatFriend(content.value, rechercheLocal.wikip[0] + rechercheLocal.wikip[1]);
         createChatRobot(returnAdress, addRobot);
         addRobot++;
         initMap(rechercheLocal.gmaps.latitude, rechercheLocal.gmaps.longitude)

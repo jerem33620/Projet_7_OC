@@ -37,12 +37,11 @@ class WikiP:
 
         url = "https://fr.wikipedia.org/w/api.php"
 
-        try:
-            r = requests.get(url, params=params)
+        r = requests.get(url, params=params)
+
+        if r.status_code == 200:
             data = r.json()
             url_page = data['query']['pages'][str(id)]['fullurl']
             intro = data['query']['pages'][str(id)]['extract']
             return intro, url_page
-
-        except KeyError:
-            print("Informations non trouvées")
+        return []
