@@ -26,7 +26,8 @@ function createChatFriend(content, wikipedia){
     addText.textContent = content;
     addToChatBox.appendChild(addText);
     addToChatBox.appendChild(map);
-    addToChatBox.appendChild(wikipediaElt).appendChild(wikipediaUrl);
+    addToChatBox.appendChild(wikipediaElt);
+    wikipediaElt.appendChild(wikipediaUrl);
     scrollBottom();
 }
 
