@@ -11,8 +11,8 @@ class TestParser:
         assert ab.transform_to_lowercase() == "ceci est un exemple en majuscule"
 
     def test_delete_spaces(self):
-        ab = parserquestion.QuestionParser("   j'ai un   probleme avec   mon exemple   ")
-        assert ab.delete_spaces() == "j ai un probleme avec mon exemple"
+        ab = parserquestion.QuestionParser("   j'ai un   probleme avec   mon exemple    ")
+        assert ab.delete_spaces() == "j'ai un probleme avec mon exemple"
  
     def test_remove_special(self):
         ab = parserquestion.QuestionParser(",?;.:/!-*+%$€_£¤=@|°}]¨[(){'#~&²")
