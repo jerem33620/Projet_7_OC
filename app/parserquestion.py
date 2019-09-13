@@ -36,7 +36,7 @@ class QuestionParser:
 
     def delete_spaces(self):
         """Permet de remplacé plusieurs espaces vides par un seul espace vide et aussi l'apostrophe"""
-        delete_spaces = "   j'ai un   probleme avec   mon exemple    "
+        delete_spaces = "  j'ai un  probleme avec  mon exemple  "
         return delete_spaces.strip().replace("  ", " ")
 
     def remove_stop_words(self):

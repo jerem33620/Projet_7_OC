@@ -7,8 +7,9 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-googlemaps = "*"
 requests = "*"
+googlemaps = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
