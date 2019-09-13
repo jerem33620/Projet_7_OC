@@ -7,12 +7,12 @@ class TestParser:
     par un espace et qu'il change les lettres avec accents en lettres sans accents."""
 
     def test_transform_to_lowercase(self):
-        ab = parserquestion.QuestionParser("TEST")
-        assert ab.transform_to_lowercase() == "test"
+        ab = parserquestion.QuestionParser("CECI EST UN EXEMPLE EN MAJUSCULE")
+        assert ab.transform_to_lowercase() == "ceci est un exemple en majuscule"
 
     def test_delete_spaces(self):
-        ab = parserquestion.QuestionParser("   bla bla   ")
-        assert ab.delete_spaces() == "bla bla"
+        ab = parserquestion.QuestionParser("   j'ai un   probleme avec   mon exemple   ")
+        assert ab.delete_spaces() == "j ai un probleme avec mon exemple"
  
     def test_remove_special(self):
         ab = parserquestion.QuestionParser(",?;.:/!-*+%$€_£¤=@|°}]¨[(){'#~&²")
