@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     background: url("../pictures/fond.png") scroll no-repeat top;
     background-size: cover;
@@ -21,7 +24,7 @@ header {
 
 .map {
     height: 200px;
-    width: 350px;
+    width: 100%;
 }
 
 main {
@@ -34,84 +37,94 @@ main {
     width: 100%;
     height: 375px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .chatBox {
     position: relative;
-    width: 40%;
-    height: 378px;
+    width: 100%;
     margin: auto;
-    opacity: 0.9;
+    //height: 378px;
+    //opacity: 0.9;
     background-color: black;
     border: solid 1px;
     border-radius: 10px;
     font-weight: bold;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 600px){
+    .chatBox {
+        width: 600px;
+    }
 }
 
 .chatDiscussion {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 342px;
+    //height: 342px;
     overflow: auto;
+    flex-grow: 1;
 }
 
 .chatRobot {
     color: red;
-    float: left;
-    width: 400px;
+    width: calc(100%-50px);
     text-align: left;
-    margin-left: 2px;
+    margin-right: 50px;
 }
 
 .chatFriend {
     color: rgb(229, 255, 0);
-    float: right;
-    width: 430px;
+    width: calc(100%-50px);
     text-align: left;
-    margin-right: 15px;
+    //margin-right: 15px;
+    margin-left: 50px;
 }
 
 .chatRobot p {
     display: inline-block;
     background-color: #d9d9d9;
     border-radius: 10px;
-    width: 400px;
+    width: 100%;
     padding: 5px;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 .chatFriend p {
     margin-top: 5px;
     display: inline-block;
     background-color: #3385ff;
-    width: 430px;
+    width: 100%;
     border-radius: 10px;
     padding: 5px;
-    margin-right: 15px;
+    //margin-right: 15px;
 }
 
 .chatFriend a a:hover {
     font-weight: bold;
     color: red;
-    width: 430px;
+    width: 100%;
 }
 
 .inputBox {
-    position: absolute;
     width: 100%;
     height: 35px;
     background-color: white;
     border-radius: 10px;
     bottom: 0;
+    flex-grow: 0;
+    padding-top: 5px; 
+    padding-bottom: 5px;
 }
 
 .inputBox input {
-    position: absolute;
     background-color: #e6e6e6;
-    left: 2%;
-    top: 50%;
-    transform: translateY(-50%);
     width: 70%;
     height: 25px;
     border-color: grey;
@@ -123,11 +136,9 @@ main {
 .inputBox button {
     opacity: 1;
     color: black;
-    position: absolute;
     background-color: #3385ff;
     right: 2%;
     top: 50%;
-    transform: translateY(-50%);
     width: 20%;
     height: 25px;
     border-radius: 10px;
@@ -142,6 +153,7 @@ footer {
     right: 0;
     left: 0;
     text-align: center;
+    flex-grow: 0;
 }
 
 footer h5 {

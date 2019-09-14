@@ -15,10 +15,11 @@ def question_for_app_grandpy(question):
     result_address = gmaps.search(question)
     wikip = WikiP()
     pages = wikip.search_for_pages(result_address["latitude"], result_address["longitude"])
-    result_wiki = wikip.search_for_page_content(pages[0]["pageid"])
+    result_article, result_url = wikip.search_for_page_content(pages[0]["pageid"])
     return {
         "grandpy": random.choice(reponseListe),
         "parser": question,
         "gmaps": result_address,
-        "wikip": result_wiki
+        "wikip": result_article,
+        "wikip_url": result_url,
     }
