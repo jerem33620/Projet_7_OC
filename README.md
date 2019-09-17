@@ -7,29 +7,29 @@ Ah, les grands-pères... Je ne sais pas vous, mais le mien connaissait quantité
 Pourtant, j'adore ses récits ! J'ai beaucoup appris et rêvé d'autres contrées en l'écoutant. Voici donc le projet que je vous propose : créer un robot qui vous répondrait comme votre grand-père ! Si vous lui demandez l'adresse d'un lieu, il vous la donnera, certes, mais agrémentée d'un long récit très intéressant. Vous êtes prêt·e ?
 
 
-## Liens':'
+## Liens:
 
 Lien github: https://github.com/jerem33620/Projet_7_OC.git
 Adresse URL: https://projet-7-oc.herokuapp.com
 
 
-### Installer':'
+### Installer:
 
-Pour installer et faire fonctionner mon projet vous aurez besoin de certain packages et vous aurez besoin de clonnez mon projet de github sur votre machine avec git, avec les commandes:
+Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git, avec les commandes:
 
 - git clone https://github.com/jerem33620/Projet_7_OC.git
 
-Puis pour les packages:
+Puis, pour les packages:
 
 - python -m pip install pipenv
 - python -m pipenv install googlemaps, flask, requests
 
-Sinon il faut faire:
+Sinon, il faut faire:
 
 - python -m pip install -r requirements.txt
 
 
-#### API':'
+#### API:
 
 Vous aurez aussi besoin de générer 2 API pour faire fonctionner le projet.
 
@@ -44,7 +44,7 @@ Dans le fichier gomaps.py:
 Remplacer les "GOOGLE_API_KEY_1" et "GOOGLE_API_KEY_2" par "VOS_API"
 
 
-#### Test':'
+#### Test:
 
 Pour lancer un test, il vous suffit de lancer la commande:
 
@@ -55,7 +55,7 @@ ou
 - pytest tests.py
 
 
-#### Activer votre projet en local':'
+#### Activer votre projet en local:
 
 Il faudra lancer 2 commandes et vous aurez le projet d'activé.
 
