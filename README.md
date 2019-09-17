@@ -17,16 +17,22 @@ Adresse URL: https://projet-7-oc.herokuapp.com
 
 Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git, avec les commandes:
 
+```
 - git clone https://github.com/jerem33620/Projet_7_OC.git
+```
 
 Puis, pour les packages:
 
+```
 - python -m pip install pipenv
 - python -m pipenv install googlemaps, flask, requests
+```
 
 Sinon, il faut faire:
 
+```
 - python -m pip install -r requirements.txt
+```
 
 
 #### API:
@@ -35,11 +41,15 @@ Vous aurez aussi besoin de générer 2 API pour faire fonctionner le projet.
 
 Dans le fichier routes.py:
 
+```
 - Ligne 11: api_key=os.environ.get('GOOGLE_API_KEY_2')
+```
 
 Dans le fichier gomaps.py:
 
+```
 - Ligne 10: key=os.getenv("GOOGLE_API_KEY_1")
+```
 
 Remplacer les "GOOGLE_API_KEY_1" et "GOOGLE_API_KEY_2" par "VOS_API"
 
@@ -48,17 +58,23 @@ Remplacer les "GOOGLE_API_KEY_1" et "GOOGLE_API_KEY_2" par "VOS_API"
 
 Pour lancer un test, il vous suffit de lancer la commande:
 
+```
 - pytest
+```
 
 ou
 
+```
 - pytest tests.py
+```
 
 
 #### Activer votre projet en local:
 
 Il faudra lancer 2 commandes et vous aurez le projet d'activé.
 
+```
 - python -m pipenv shell
 
 - python -m app.routes
+```
