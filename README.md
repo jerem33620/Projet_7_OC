@@ -9,9 +9,9 @@ Pourtant, j'adore ses récits ! J'ai beaucoup appris et rêvé d'autres contrée
 
 ## Liens:
 
-Lien Trello: https://trello.com/b/T42iiXIZ/projet7oc
-Lien github: https://github.com/jerem33620/Projet_7_OC.git
-Adresse URL: https://projet-7-oc.herokuapp.com
+- Lien Trello: https://trello.com/b/T42iiXIZ/projet7oc
+- Lien github: https://github.com/jerem33620/Projet_7_OC.git
+- Adresse URL: https://projet-7-oc.herokuapp.com
 
 
 ### Installer:
