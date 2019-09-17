@@ -4,7 +4,7 @@ from app import parserquestion
 class TestParser:
     """Ici on va testé que le fichier parser, transforme bien les majuscules en minuscule,
     qu'il enlève les espaces en trop, qu'il enlève les caractères spéciales et les remplaces
-    par un espace et qu'il change les lettres avec accents en lettres sans accents."""
+    par un espace."""
 
     def test_transform_to_lowercase(self):
         ab = parserquestion.QuestionParser("CECI EST UN EXEMPLE EN MAJUSCULE")

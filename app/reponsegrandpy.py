@@ -1,3 +1,4 @@
+"""Liste des réponses données par grandpy, pour l'adresse trouvé"""
 reponseListe = ["Bien sur jeune padawan, la voici: ", 
     "Je trouve toujours ce que tu me demandes: ",
     "J'ai enfin trouvé ce que tu m'as demandé: ",

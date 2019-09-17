@@ -24,7 +24,7 @@ class WikiP:
         return []
 
     def search_for_page_content(self, id):
-        """Permet de trouvé le texte correspondant grâce à l'id de la pages (pageids)"""
+        """Permet de trouvé le texte correspondant grâce à l'id de la page (pageids)"""
         params = {
             "action": "query",
             "prop": "extracts|info",
