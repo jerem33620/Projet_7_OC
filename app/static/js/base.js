@@ -1,6 +1,6 @@
 function scrollBottom(){
-    let chatBox = document.getElementsByClassName('chatDiscussion')[0];
-    chatBox.scrollTop = chatBox.scrollHeight;
+    let inputBox = document.getElementsByClassName('inputBox')[0];
+    inputBox.scrollIntoView();
 }
 
 function createChatRobot(content){
