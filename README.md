@@ -16,7 +16,7 @@ Pourtant, j'adore ses récits ! J'ai beaucoup appris et rêvé d'autres contrée
 
 ### Installer:
 
-Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git, avec les commandes:
+Pour installer et faire fonctionner mon projet vous aurez besoin de certains packages et vous aurez besoin de clonner mon projet de github sur votre machine avec git:
 
 ```
 - git clone https://github.com/jerem33620/Projet_7_OC.git
