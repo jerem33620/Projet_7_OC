@@ -20,7 +20,7 @@ function createChatFriend(content, wikipedia, url){
     let wikipediaElt = document.createElement('p');
     let wikipediaUrl = document.createElement('a');
     wikipediaUrl.href = url;
-    wikipediaUrl.textContent = "En savoir plus"
+    wikipediaUrl.textContent = " En savoir plus..."
     wikipediaElt.textContent = wikipedia;
     map.classList.add('map');
     addToChatBox.setAttribute('class', 'chatFriend');

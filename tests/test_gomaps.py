@@ -3,7 +3,7 @@ from app import gomaps
 
 
 def test_search_for_latitude_longitude(monkeypatch):
-    """Ici on va testé que le fichier googlemaps cherche bien la latitude et la longitude"""
+    """Ici on va testé que le fichier gomaps cherche bien la latitude, la longitude et l'address"""
     address = 'Champ de mars, 5 Avenue Anatole France, 75007 Paris, France'
     latitude = 48.85837009999999
     longitude = 2.2944813
